@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: black;
+    }
+    .dv{
+        width: 637px;
+        height: 386px;
+        border: 1px solid #ffff;
+        margin: 30px auto;
+        padding: 5px;
+    }
+    .bg{
+        width: 205px;
+        height: 187px;
+        border: 2px solid black;
+        display: inline-block;
+    }
+    .mg{
+        width: 205px;
+        height: 187px;
+        background: rgba(20, 20, 20);
+        opacity: 0;
+    }
+
+</style>
+<body>
+    <div class="dv">
+        <div class="bg" style="background: url(./images/01.jpg);">
+            <div class="mg"></div>
+        </div>
+        <div class="bg" style="background: url(./images/02.jpg);">
+            <div class="mg"></div>
+        </div>
+        <div class="bg" style="background: url(./images/03.jpg);">
+            <div class="mg"></div>
+        </div>
+        <div class="bg" style="background: url(./images/04.jpg);">
+            <div class="mg"></div>
+        </div>
+        <div class="bg" style="background: url(./images/05.jpg);">
+            <div class="mg"></div>
+        </div>
+        <div class="bg" style="background: url(./images/06.jpg);">
+            <div class="mg"></div>
+        </div>
+    </div>
+</body>
+
+<script src="./js/jquery.min.js"></script>
+<script>
+    $(".mg").hover(function(){
+        $(this).stop().fadeTo(500,0).parent().siblings().find(".mg").stop().fadeTo(500,0.5);
+    },function(){
+        $(".mg").stop().fadeTo(100,0);
+    });
+
+</script>
+</html>

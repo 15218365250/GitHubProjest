@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .dv{
+        margin: 200px auto;
+        width: 400px;
+        height: 400px;
+        position: relative;
+    }
+    .zen,.fan{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 300px;
+        height: 300px;
+        transition: transform 2s;
+        backface-visibility :hidden;
+    }
+    .zen{
+        background: url(./img/正面.png);
+        background-size: contain;
+    }
+    .fan{
+        background: url(./img/反面.png);
+        background-size: contain;
+        transform: rotateY(-180deg);
+    }
+    .dv:hover .zen{
+        /* animation: move 2s ; */
+        /* animation-fill-mode: forwards; */
+        transform: rotateY(180deg);
+        
+    }
+    .dv:hover .fan{
+        /* animation: move 2s; */
+        /* animation-fill-mode: forwards; */
+        transform: rotateY(0deg);
+    }
+    /* @keyframes move{
+        from{
+            transform: rotateY(0deg);
+        }
+        to{
+            transform: rotateY(180deg);
+            
+        }
+    } */
+</style>
+<body>
+    <div class="dv">
+        <div class="fan"></div>
+        <div class="zen"></div>
+    </div>
+</body>
+</html>

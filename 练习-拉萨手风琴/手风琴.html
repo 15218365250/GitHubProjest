@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: url(./images/bg.jpg) center top;
+    }
+    .dv{
+        margin: 150px auto;
+        width: 1092px;
+        height: 430px;
+    }
+    .mg{
+        width: 100px;
+        height: 430px;
+        display: inline-block;
+    }
+    .text{
+        width: 20px;
+        height: 288px;
+        padding: 72px 40px;
+        text-align: center;
+        background:  rgb(20, 20, 20,0.5);
+    }
+    .one{
+        background: url(./images/1.jpg);
+        
+    }
+    .two{
+        background: url(./images/2.jpg);
+    }
+    .three{
+        background: url(./images/3.jpg);
+    }
+    .fir{
+        background: url(./images/4.jpg);
+        width: 690px;
+    }
+    span{
+        width: 1em;
+        color: snow;
+        display: inline-block;
+    }
+</style>
+<body>
+    <div class="dv">
+        <div class="mg one">
+            <div class="text"><span>我的个人拉萨之旅｜｜故事之城</span></div>
+        </div>
+        <div class="mg two">
+            <div class="text"><span>我的个人拉萨之旅｜｜故事之城</span></div>
+        </div>
+        <div class="mg three">
+            <div class="text "><span>我的个人拉萨之旅｜｜故事之城</span></div>
+        </div>
+        <div class="mg fir">
+            <div class="text"><span>我的个人拉萨之旅｜｜故事之城</span></div>
+        </div>
+    </div>
+</body>
+
+<script src="./js/jquery.min.js"></script>
+<script>
+    $(".mg").hover(function(){
+        $(this).stop().animate({width:680},1000).siblings(".mg").stop().animate({width:100},1000);
+    })
+</script>
+</html>

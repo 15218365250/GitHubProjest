@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            margin-left: 50px;
+            margin-top: 44px;
+            margin-bottom: 50px;
+        }
+
+        .box {
+            margin-left: 50px;
+            width: 400px;
+            height: 400px;
+            border: 1px solid blue;
+            /* 父相 */
+            position: relative;
+            /* 溢出隐藏 */
+            overflow: hidden;
+        }
+
+        .box .game {
+            width: 400px;
+            /* 子绝 */
+            position: absolute;
+            left: 0;
+            top: -100px;
+        }
+
+        .box .game .row {
+            height: 100px;
+        }
+
+        .box .game .row div {
+            width: 98px;
+            height: 98px;
+            border: 1px solid #b9b9b9;
+            float: left;
+        }
+
+        .box .game .row div.black {
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 面向过程理解为,把功能分成每个不同的函数,按步骤调用函数即可 -->
+
+    <input type="text" disabled="disabled" value="0" id="score" />
+
+    <!-- 盒子 -->
+    <div class="box">
+        <!-- 游戏区域 -->
+        <div class="game" style="top: -100px">
+            <!-- 行 -->
+            <div class="row">
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <!-- 行 -->
+            <div class="row">
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+                <div></div>
+            </div>
+            <!-- 行 -->
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+                <div></div>
+            </div>
+            <!-- 行 -->
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="black"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    // 创建一个游戏构造函数
+    function Game(options) {//options配置参数，是一个对象
+        // 调用初始化方法
+        this.init();
+    }
+
+    // 游戏构造函数需要方法
+    // 游戏区下落的方法
+    Game.prototype.moveDown = function () {
+        this.timer = setInterval(function () {
+            this.el.style.top = this.el.offsetTop + this.speed + "px";
+
+            if (this.el.offsetTop >= 0) { //触底的时候
+                if(this.el.childten.length>=5){//游戏区域里面的行数大于等于5的时候，删除最后一行
+                    this.deleteLastRow();//删除一行方法
+                }
+                // 判断游戏触底的时候，最后一行的黑块是否被点击
+                this.lastRowBlackClicked();
+
+                // 创建新的一行
+                this.creatNewRow();
+            }
+        }.bind(this),30);//通过bind改变this的指向
+    }
+
+    // 判断游戏触底的时候，最后一行的黑块是否被点击的方法
+    Game.prototype.lastRowBlackClicked = function () {
+        var ceils =  this.el.lastRowBlackClicked.querySelectorAll("div");
+        for( var j=0;j<celis.length;j++){
+            if(ceils[j].className == "black"){
+                alert("游戏结束");
+                clearInterval(this.timer);
+                // 改变当前游戏状态
+                this.gameOver = true;
+            }
+        }
+        return;
+    }
+
+    // 创建新的一行的方法
+    Game.prototype.creatNewRow = function () {
+        // 创建行
+        var row = document.createElement("div");
+        row.className = "row";
+        // 生成随机1~4之间随机整数
+        var randomNum = Math.floor(Math.random()*4+1);
+
+        // 创建4个列
+        for(var i = 1;i<=4;i++){
+            var ceil = document.createElement("div");
+            if(randomNum == i){//随机生成黑块
+                ceil.className = "black";
+            }
+            row.appendChild(ceil);
+        }
+        // 把新的行添加的游戏区域元素列表最面前
+        this.el.insertBefore(row,this.el.firstElementChild);
+        this.el.style.top = "-100px";
+
+    }
+
+    // 删除最后一行的方法
+    Game.prototype.deleteLastRow = function () {
+        this.el.lastElementChild.remove();
+    }
+
+    // 给游戏区域绑定点击事件
+    Game.prototype.handlerClick = function(){
+            // 缓存this
+            var self = this;
+
+            this.el.onclick = function( e ){
+                var e = e || window.event;
+
+                if( self.gameOver ){// 判断游戏是否结束
+                    alert("游戏已经结束");
+                }else{
+                    if( e.target.className == "black" ){// 如果点击的黑块,加分变白
+                        e.target.removeAttribute("class");
+
+                        // 加分
+                        self.fenshu++;
+                        self.score.value = self.fenshu;
+
+                        // 每5分加1速度
+                        if( self.fenshu%5 == 0 ){
+                            self.speed++;
+                        }
+                    }else{// 如果点击的是白块
+                        alert("游戏结束");
+                        clearInterval( self.timer );
+                        // 改变当前游戏状态
+                        self.gameOver = true;
+                    }
+                }
+
+            }
+        }
+
+    // 初始化游戏的方法，指挥游戏运行
+    Game.prototype.init = function (options) {
+        // 初始化数据的方法
+        this.initData(options)
+        // 下落方法
+        this.moveDown();
+        // 给游戏区域绑定事件
+        this.handlerClick();
+    }
+    // 初始化数据的方法
+    Game.prototype.initData = function (options) {
+            // score是分数文本框对象
+            this.score = options.score;
+            // el是游戏区域dom对象
+            this.el = options.el;
+            // 分数
+            this.fenshu = options.fenshu;
+            // 下落速度
+            this.speed = options.speed;
+            // 定时器标识符
+            this.timer = null;
+            // 使用一个属性保存当前游戏状态
+            this.gameOver = false;
+    }
+
+    // new实例化得到一个Game实例对象
+    new Game({
+        el: document.querySelector(".game"),
+        score: document.querySelector("#score"),
+        fenshu: 0,
+        speed: 1
+    });
+
+
+</script>
+
+</html>

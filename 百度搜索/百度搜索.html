@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: burlywood;
+    }
+
+    .container {
+        width: 660px;
+        margin: 40px auto;
+    }
+
+    .bg {
+        width: 654px;
+        height: 255px;
+    }
+
+    .bg img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .suo {
+        width: 654px;
+        /* border-radius: 10px; */
+        /* overflow: hidden; */
+        border: 1px solid rgb(203, 206, 207);
+    }
+
+    .suo input {
+        width: 549px;
+        height: 35px;
+        border: none;
+        padding: 5px;
+    }
+
+    .suo button {
+        float: right;
+        width: 95px;
+        height: 45px;
+        background-color: rgb(203, 206, 207);
+        border: 0;
+    }
+
+    ul {
+        height: 223px;
+        overflow: hidden;
+    }
+
+    ul li {
+        list-style: none;
+        width: 559px;
+        height: 35px;
+        line-height: 35px;
+        /* border-radius: 10px; */
+        cursor: pointer;
+        background-color: #fff;
+        border: 1px solid rgb(203, 206, 207);
+    }
+
+    ul li:hover {
+        background-color: cornsilk;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="bg"><img src="./PC.png" alt=""></div>
+        <div class="suo">
+            <input type="text" class="input">
+            <button>百度一下</button>
+            <!-- <i class="fa fa-camera"></i> -->
+        </div>
+        <ul></ul>
+    </div>
+
+    <script src="./jquery.min.js"></script>
+    <script>
+        // 定义一个存储定时器变量
+        var term = null;
+        // 获取ul元素
+        var ul = document.querySelector("ul");
+        // 获取input元素
+        var input = document.querySelector(".input");
+        // 给input一个输入事件
+        input.oninput = function () {
+            // 防抖功能
+            clearTimeout(term);
+            // 没0.5秒执行一次获取input内容并执行功能
+            term = setTimeout(function () {
+                // 使用jQ中的ajax方法
+                $.ajax({
+                    url: "http://suggestion.baidu.com/su",
+                    type: "get",
+                    data: {
+                        wd: $(".input").val()
+                    },
+                    // 定义数据类型
+                    dataType: "jsonp",
+                    // 改变callback名字
+                    jsonp: "cb",
+                    success: function (result) {
+                        var list = result.s;
+                        // 先清空后添加
+                        $("ul").empty();
+                        var html = "";
+                        for (var i = 0; i < list.length; i++) {
+                            html += `<li>${list[i]}</li>`
+                            $("ul").html(html);
+                        }
+                        // 点击li把里面的内容赋予input
+                        $("li").click(function(){
+                            $(".input").val($(this).text()) ;
+                        })
+                    }
+                })
+                // 判断input中的值是否为空,如果为空清除ul中的内容
+                if ($(".input").val() == "") {
+                         $("ul").html("");
+                    }  
+            }, 500)
+        }
+        // 点击百度按钮搜索内容
+        $("button").click(function () {
+            var text = $(".input").val();
+            window.open('http://www.baidu.com/s?wd=' + text)
+            $("ul").html() = "";
+        })
+
+    </script>
+</body>
+
+</html>

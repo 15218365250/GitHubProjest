@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .imgbg {
+        margin: 200px auto;
+        width: 500px;
+        position: relative;
+    }
+
+    .imgst{
+        position: absolute;
+        width: 200px;
+        height: 100px;
+        transition: transform 3s;
+        transform-origin: right top;
+
+    }
+
+    .imgbg:hover .img6 {
+        transform: rotate(360deg);
+    }
+
+    .imgbg:hover .img5 {
+        transform: rotate(300deg);
+    }
+
+    .imgbg:hover .img4 {
+        transform: rotate(240deg);
+    }
+
+    .imgbg:hover .img3 {
+        transform: rotate(180deg);
+    }
+
+    .imgbg:hover .img2 {
+
+        transform: rotate(120deg);
+    }
+
+    .imgbg:hover .img1 {
+        transform: rotate(60deg);
+    }
+</style>
+
+<body>
+    <div class="imgbg">
+        <div class="imgst img1" style="background: url(./images/1.jpg)no-repeat;"></div>
+        <div class="imgst img2" style="background: url(./images/2.jpg)no-repeat;"></div>
+        <div class="imgst img3" style="background: url(./images/3.jpg)no-repeat;"></div>
+        <div class="imgst img4" style="background: url(./images/4.jpg)no-repeat;"></div>
+        <div class="imgst img5" style="background: url(./images/5.jpg)no-repeat;"></div>
+        <div class="imgst img6" style="background: url(./images/6.jpg)no-repeat;"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: black;
+        background: url(./p=0.jpg)no-repeat;
+        background-size:contain;
+    }
+
+    .dv {
+        width: 1000px;
+        height: 1000px;
+        margin: 100px auto;
+        position: relative;
+        /* animation: move 50s infinite linear; */
+    }
+
+    @keyframes move {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+
+    .planet {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 2px solid rgb(6, 206, 241);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation-name: move;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    .planet::after {
+        content: "";
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: chartreuse;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 15px rgb(146, 141, 141);
+    }
+
+    .one {
+        width: 800px;
+        height: 800px;
+        animation-duration: 40s;
+    }
+
+    .one::after {
+        
+        background-color: chartreuse;
+        top: 0;
+    }
+
+    .two {
+        width: 720px;
+        height: 720px;
+        animation-duration: 35s;
+    }
+
+    .two::after {
+        background-color: rgb(5, 119, 226);
+        
+    }
+
+    .three {
+        width: 640px;
+        height: 640px;
+        animation-duration: 30s;
+    }
+
+    .three::after {
+        background-color: rgb(198, 6, 247);
+        
+    }
+
+    .four {
+        width: 560px;
+        height: 560px;
+        animation-duration: 27s;
+    }
+
+    .four::after {
+        background-color: rgb(235, 4, 158);
+        
+    }
+
+    .find {
+        width: 480px;
+        height: 480px;
+        animation-duration: 25s;
+    }
+
+    .find::after {
+        background-color: rgb(241, 3, 54);
+        
+    }
+
+    .six {
+        width: 400px;
+        height: 400px;
+        animation-duration: 20s;
+    }
+
+    .six::after {
+        background-color: rgb(253, 4, 45);
+        
+    }
+
+    .sever {
+        width: 320px;
+        height: 320px;
+        animation-duration: 18s;
+    }
+
+    .sever::after {
+        background-color: rgb(252, 190, 21);
+        
+    }
+
+    .eat {
+        width: 240px;
+        height: 240px;
+        animation-duration: 15s;
+    }
+
+    .eat::after {
+        background-color: rgb(255, 230, 4);
+        
+    }
+
+    .nice {
+        width: 160px;
+        height: 160px;
+        animation-duration: 10s;
+    }
+
+    .nice::after {
+        background-color: rgb(3, 233, 250);
+        
+    }
+
+    .tan {
+        width: 80px;
+        height: 80px;
+        animation-duration: 5s;
+    }
+
+    .tan::after {
+        background-color: rgb(105, 82, 18);
+        
+    }
+
+    .dv .run::after {
+        background-color: rgb(253, 179, 5);
+        box-shadow: 0 0 25px rgb(253, 179, 5);
+    }
+</style>
+
+<body>
+    <div class="dv">
+        <div class="planet one"></div>
+        <div class="planet two"></div>
+        <div class="planet three"></div>
+        <div class="planet four"></div>
+        <div class="planet find"></div>
+        <div class="planet six"></div>
+        <div class="planet sever"></div>
+        <div class="planet eat"></div>
+        <div class="planet nice"></div>
+        <div class="planet tan"></div>
+        <div class="planet run"></div>
+    </div>
+</body>
+
+</html>

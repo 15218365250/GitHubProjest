@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 400px;
+        height: 400px;
+        display: inline-block;
+    }
+
+    body {
+        perspective: 1000px;
+        text-align: center;
+    }
+
+    .box {
+        position: relative;
+        margin-top: 200px;
+        transition: all 2s;
+        transform-style: preserve-3d;
+        transform-origin: 0px 200px 200px;
+    }
+
+    .box:hover {
+        
+        transform: rotateY(-60deg);
+    }
+
+    .con {
+        position: absolute;
+        left: 0;
+        top: 0;
+        line-height: 400px;
+        text-align: center;
+        opacity: 0.5;
+    }
+
+    .top {
+        background-color: orange;
+    }
+
+    .behid {
+        background-color: rgb(208, 255, 0);
+        transform: translateZ(-400px);
+    }
+
+    .left {
+        background-color: rgb(0, 255, 221);
+        transform-origin: 0px;
+        transform:translateZ(-400px) rotateY(-90deg);
+        }
+    
+    .right{
+        background-color: rgb(162, 0, 255);
+        transform-origin: 100% 100%;
+        transform: translateZ(-400px) rotateY(90deg);
+    }
+    .tone{
+        background-color: orangered;
+        transform-origin: 100% 100%;
+        transform:translateY(-400px) rotateX(90deg);
+    }
+    .bottm{
+        background-color: peachpuff;
+        transform-origin: 100% 100%;
+        transform:translateZ(-400px) rotateX(-90deg);
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="con top">前</div>
+        <div class="con behid">后</div>
+        <div class="con left">左</div>
+        <div class="con right">右</div>
+        <div class="con tone">上</div>
+        <div class="con bottm">下</div>
+    </div>
+</body>
+
+</html>

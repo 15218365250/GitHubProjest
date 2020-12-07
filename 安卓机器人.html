@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .dv{
+        width: 500px;
+        margin: 100px auto;
+    }
+    .hear {
+        position: relative;
+        width: 300px;
+        height: 150px;
+        border-style: solid;
+        border-color: rgba(164, 202, 57);
+        border-width: 150px 0 0 0;
+        border-radius: 50%;
+    }
+    .hear::before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        position: absolute;
+        top: -70px;
+        left: 50px;
+        border-radius: 50%;
+    }
+    .hear::after{
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        position: absolute;
+        top: -70px;
+        left: 180px;
+        border-radius: 50%;
+    }
+    .boy{
+        width: 300px;
+        height: 260px;
+        background-color: rgba(164, 202, 57);
+        position: absolute;
+        top: 260px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    .lili{
+        width: 50px;
+        height: 130px;
+        background-color: rgba(164, 202, 57);
+        position: relative;
+        top: -110px;
+        left: -60px;
+    }
+    .lili::after,.lili-right::after{
+        content: "";
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: absolute;
+        background-color: rgba(164, 202, 57);
+        top: -24px;
+        left: 0;
+    }
+    .lili::before,.lili-right::before,.footL::before,.footR::before{
+        content: "";
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: absolute;
+        background-color: rgba(164, 202, 57);
+        bottom: -22px;
+        left: 0;
+    }
+    .lili-right{
+        width: 50px;
+        height: 130px;
+        background-color: rgba(164, 202, 57);
+        position: relative;
+        top: -245px;
+        left: 310px;
+    }
+    .footL{
+        width: 50px;
+        height: 130px;
+        background-color: rgba(164, 202, 57);
+        position: relative;
+        top: -215px;
+        left: 42px;
+    }
+    .footR{
+        width: 50px;
+        height: 130px;
+        background-color: rgba(164, 202, 57);
+        position: relative;
+        top: -345px;
+        left: 205px;
+    }
+</style>
+
+<body>
+    <div class="dv">
+        <div class="hear"></div>
+        <div class="boy"></div>
+        <div class="lili"></div>
+        <div class="lili-right"></div>
+        <div class="footL"></div>
+        <div class="footR"></div>
+    </div>
+</body>
+
+</html>

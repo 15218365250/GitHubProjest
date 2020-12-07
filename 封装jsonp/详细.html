@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 470px;
+        margin: 0 auto;
+    }
+
+    .hear {
+        height: 50px;
+        background-color: darkgray;
+        line-height: 50px;
+        text-align: center;
+        font-size: 26px;
+        font-weight: bolder;
+    }
+
+    ul {
+        margin-top: 20px;
+        list-style: none;
+    }
+
+
+
+    ul li .imgs {
+        cursor: pointer;
+    }
+
+    ul li .imgs img {
+        width: 100%;
+        height: 100%;
+    }
+
+    ul li .text {
+        width: 340px;
+    }
+
+    ul li .text p {
+        padding: 10px 0;
+        font-weight: 600;
+    }
+    .bag{
+        font-size: 26px;
+        font-weight: 900;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="hear"></div>
+        <ul>
+
+        </ul>
+    </div>
+</body>
+<script src="./jsonp封装.js"></script>
+<script>
+    var tab = document.querySelector("ul");
+
+    var html = "";
+
+    jsonp({
+        url: "https://api.binstd.com/recipe/byclass",
+        data: {
+            "classid": 2,
+            "start": 0,
+            "num": 10,
+            "appkey": "7d843d19aef78c2e"
+        },
+        success: function (result) {
+            // 遍历返回结果
+            console.log(result);
+            var list = result.result.list;
+            var hear =document.querySelector(".hear");
+            var proHtm = "";
+            list[0].process.forEach(function (item, index) {
+                proHtm += `<p>${item.pcontent}</p><p><img src="${item.pic}"></p>`
+            });
+                 html = `<li>
+                           <div class="imgs"><img src="${list[0].pic}"></div>
+                           <div class="text">
+                                <p class="bag">${list[0].name}</p>
+                                <p>${list[0].tag}</p>
+                                <p class="bag">用法:</p>
+                                <div>${proHtm}</div>
+                            </div>
+                        </li>`;
+
+            tab.innerHTML += html;
+            hear.innerHTML +=list[0].name;
+        }
+    })
+</script>
+
+</html>

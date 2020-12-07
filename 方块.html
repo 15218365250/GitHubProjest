@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 936px;
+        margin: 0 auto;
+    }
+
+    .list {
+        margin-top: 100px;
+        
+    }
+
+    .list ul {
+        font-size: 0;
+    }
+
+    .list ul li {
+        list-style: none;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        border: 2px solid rgb(92, 53, 2);
+    }
+
+    .list ul:nth-child(odd) li:nth-child(even) {
+        background-color: rgb(255, 180, 18);
+    }
+
+    .list ul:nth-child(odd) li:nth-child(odd) {
+        background-color: rgb(74, 74, 250);
+    }
+
+    .list ul:nth-child(even) li:nth-child(odd) {
+        background-color: rgb(15, 240, 63);
+    }
+
+    .list ul:nth-child(even) li:nth-child(even) {
+        background-color: rgb(74, 74, 250);
+    }
+
+    .slider {
+        margin-top: 50px;
+        width: 936px;
+        height: 10px;
+        border-radius: 10px;
+        border: 1px solid blue;
+    }
+
+    .slider .tiao {
+        position: relative;
+        width: 936px;
+        height: 10px;
+        background: blue;
+        border-radius: 10px;
+    }
+
+    .slider .tiao .bock {
+        position: absolute;
+        top: -5px;
+        right: -1px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: rgb(94, 91, 91);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="list">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <!-- 滑动条 -->
+        <div class="slider">
+            <div class="tiao">
+                <div class="bock"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    // 获取改变透明度元素
+    var list = document.querySelector(".list");
+    var slider = document.querySelector(".slider");
+    // 获取滚动条元素
+    var tiao = document.querySelector(".tiao");
+    // 获取圆滑块
+    var bock = document.querySelector(".bock");
+
+    // 滑动事件
+    bock.onmousedown = function (e) {
+
+        var x0 = e.pageX;
+        // 先获取滚动条宽度
+        var leftst = x0 - tiao.offsetWidth;
+
+        var min = 0;
+        bock.onmousemove = function (e) {
+            var x0 = e.pageX;
+            var lefts = x0 - leftst;
+            var min = 0;
+            lefts = lefts >= slider.offsetWidth ? slider.offsetWidth : lefts <= min ? min : lefts;
+            tiao.style.width = lefts + "px";
+            bock.style.left = lefts -20+ "px";
+            list.style.opacity = (lefts)/936;
+
+        }
+    }
+        bock.onmouseup = function (e) {
+            this.onmousemove = null;
+        }
+        bock.onmouseout = function(){
+            this.onmousemove = null;
+        }
+</script>
+
+</html>

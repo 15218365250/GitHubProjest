@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: black;
+    }
+
+    .hear {
+        margin: 400px auto;
+        width: 400px;
+        height: 100px;
+        position: relative;
+    }
+
+    .dv {
+        width: 400px;
+        height: 400px;
+        background-color: black;
+        border: 4px solid rgb(110, 109, 109);
+        border-radius: 50%;
+        border-top-color: chartreuse;
+        border-left-color: chartreuse;
+        animation: move 4s infinite linear;
+        position: relative;
+    }
+
+    .dv::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: chartreuse;
+        position: absolute;
+        top: 40px;
+        left: 325px;
+        box-shadow: 0 0 25px chartreuse;
+    }
+
+    @keyframes move {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .tex {
+        text-shadow: 0 0 25px chartreuse;
+        color: chartreuse;
+        position: absolute;
+        left: 25%;
+        top: 180%;
+        font-size: 35px;
+        letter-spacing: 10px;
+    }
+</style>
+
+<body>
+    <div class="hear">
+        <div class="dv"></div>
+        <div class="tex">LOADING</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 手机父类
+        function Phone(uname, type) {
+            this.uname = function () {
+                console.log("我是你爸爸");
+            };
+            this.type = function () {
+                console.log("手机家族");
+            }
+        }
+
+        function Android(system) {
+            Phone.call(this, uname, type);
+            this.system = function () {
+                console.log("安卓系统");
+            }
+        }
+
+        function Iphone(system) {
+            Phone.call(this, uname, type);
+            this.system = function () {
+                console.log("Ios系统");
+            }
+        }
+
+        Android.prototype = new Phone();
+        Iphone.prototype = new Phone();
+
+
+
+    </script>
+</body>
+
+</html>

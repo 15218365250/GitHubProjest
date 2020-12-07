@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .navigation,
+    .top,
+    .bottm {
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        
+    }
+    .navigation {
+        position: relative;
+        transition: all 1s;
+        transform-style: preserve-3d;
+        float: left;
+        margin: 50px 10px;
+        transform-origin: 0px 0px;
+    }
+
+    .navigation:hover {
+        transform: rotateX(90deg);
+    }
+
+    .top {
+        background-color: powderblue;
+    }
+
+    .bottm {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: purple;
+        /* transform-origin: 0px 100%; */
+        transform:  translateZ(-15px) rotateX(-90deg);
+    }
+</style>
+
+<body>
+    <div class="navigation">
+        <div class="top">努力奋斗</div>
+        <div class="bottm">不负韶华</div>
+    </div>
+    <div class="navigation">
+        <div class="top">努力奋斗</div>
+        <div class="bottm">不负韶华</div>
+    </div>
+    <div class="navigation">
+        <div class="top">努力奋斗</div>
+        <div class="bottm">不负韶华</div>
+    </div>
+    <div class="navigation">
+        <div class="top">努力奋斗</div>
+        <div class="bottm">不负韶华</div>
+    </div>
+    <div class="navigation">
+        <div class="top">努力奋斗</div>
+        <div class="bottm">不负韶华</div>
+    </div>
+</body>
+
+</html>

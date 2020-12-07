@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: black;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .dv {
+        width: 300px;
+        margin: 50px auto;
+    }
+
+    .dv .dice {
+        display: flex;
+        width: 200px;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        margin: 20px 0;
+    }
+
+    .dv .dice .con {
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        border-radius: 10%;
+        margin: 5px;
+    }
+
+    .dv .dice .con .one {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: #000;
+        border-radius: 50%;
+        margin: 2px;
+    }
+    .dv .dice .con .row{
+        width: 60px;
+        background: #fff;
+        border-radius: 10%;
+        
+    }
+    .dv .dice .con .row .one {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: #000;
+        border-radius: 50%;
+        margin: 2px;
+    }
+    .dv .two {
+
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .dv .two :nth-child(1) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .dv .two :nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .dv .two :nth-child(3) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .dv .two :nth-child(4) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .dv .two :nth-child(5) {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    .dv .two :nth-child(5) :nth-child(2) {
+        align-self: center;
+    }
+
+    .dv .two :nth-child(6) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .dv .two :nth-child(6) :nth-child(2) {
+        align-self: flex-end;
+    }
+
+    .dv .three :nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .dv .three :nth-child(1) :nth-child(2) {
+        align-self: center;
+    }
+
+    .dv .three :nth-child(1) :nth-child(3) {
+        align-self: flex-end;
+    }
+
+    .dv .fix :nth-child(1) {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        /* justify-content: center; */
+
+    }
+
+    .dv .fix :nth-child(1) :nth-child(4) {
+        align-self: flex-end;
+    }
+
+    .dv .fix :nth-child(2) {
+        display: flex;
+        flex-flow: wrap;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+    }
+
+    .dv .fix :nth-child(2) :nth-child(1) {
+        display: flex;
+        justify-content: space-between;
+        /* background-color: blue; */
+    }
+
+    .dv .fix :nth-child(2) :nth-child(2) {
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    .dv .fix :nth-child(2) :nth-child(2) :nth-child(1){
+        align-self: flex-end;
+    }
+    .dv .fix :nth-child(2) :nth-child(2) :nth-child(2){
+        align-self: flex-end;
+    }
+
+    .dv .find :nth-child(1) {
+        display: flex;
+        flex-flow: wrap;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+    }
+    .dv .find :nth-child(1) :nth-child(1) {
+        display: flex;
+        justify-content: space-between;
+        /* background-color: blue; */
+    }
+
+    .dv .find :nth-child(1) :nth-child(2) {
+        display: flex;
+        justify-content: center;
+    }
+    .dv .find :nth-child(1) :nth-child(2){
+        align-self: center;
+    }
+    .dv .find :nth-child(1) :nth-child(3){
+        display: flex;
+        justify-content: space-between;
+    }
+    .dv .find :nth-child(1) :nth-child(3) :nth-child(1){
+        align-self: flex-end;
+    }
+    .dv .find :nth-child(1) :nth-child(3) :nth-child(2){
+        align-self: flex-end;
+    }
+    .dv .six :nth-child(1){
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+    .dv .six :nth-child(2){
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+    .dv .six :nth-child(3) {
+        display: flex;
+        flex-flow: wrap;
+        flex-direction: row-reverse;
+        justify-content: center;
+
+    }
+    .dv .six :nth-child(3) :nth-child(1) {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        
+    }
+
+    .dv .six :nth-child(3) :nth-child(2) {
+        display: flex;
+        justify-content: center;
+    }
+    .dv .six :nth-child(3) :nth-child(2){
+        align-self: center;
+    }
+    .dv .six :nth-child(3) :nth-child(3){
+        display: flex;
+        justify-content: space-between;
+    }
+    .dv .six :nth-child(3) :nth-child(3) :nth-child(1){
+        align-self: flex-end;
+    }
+    .dv .six :nth-child(3) :nth-child(3) :nth-child(2){
+        align-self: flex-end;
+    }
+    .dv .nice :nth-child(1){
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+</style>
+
+<body>
+    <div class="dv">
+        <div class="dice">
+            <div class="con first">
+                <div class="one"></div>
+            </div>
+        </div>
+        <!-- 第二 -->
+        <div class="dice two">
+            <div class="con">
+                <div class="one"></div>
+                <div class="one"></div>
+            </div>
+            <div class="con">
+                <div class="one"></div>
+                <div class="one"></div>
+            </div>
+            <div class="con">
+                <div class="one"></div>
+                <div class="one"></div>
+            </div>
+            <div class="con">
+                <div class="one"></div>
+                <div class="one"></div>
+            </div>
+            <div class="con">
+                <div class="one"></div>
+                <div class="one"></div>
+            </div>
+            <div class="con">
+                <div class="one"></div>
+                <div class="one"></div>
+            </div>
+        </div>
+        <!-- 第三 -->
+        <div class="dice three">
+            <div class="con">
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+            </div>
+        </div>
+        <!-- 第四 -->
+        <div class="dice fix">
+            <div class="con">
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+            </div>
+            <div class="con">
+                <div class="row">
+                    <div class="one"></div>
+                    <div class="one"></div>
+                </div>
+                <div class="row">
+                    <div class="one"></div>
+                    <div class="one"></div>
+                </div>
+
+            </div>
+        </div>
+        <!-- 第五 -->
+        <div class="dice find">
+            <div class="con">
+                <div class="row">
+                    <div class="one"></div>
+                    <div class="one"></div>
+                </div>
+                <div class="row">
+                    <div class="one"></div>
+                </div>
+                <div class="row">
+                    <div class="one"></div>
+                    <div class="one"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 第六 -->
+        <div class="dice six">
+            <div class="con">
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+            </div>
+            <div class="con">
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+            </div>
+            <div class="con">
+                <div class="row">
+                    <div class="one"></div>
+                    <div class="one"></div>
+                    <div class="one"></div>
+                </div>
+                <div class="row">
+                    <div class="one"></div>
+                </div>
+                <div class="row">
+                    <div class="one"></div>
+                    <div class="one"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 第七 -->
+        <div class="dice nice">
+            <div class="con">
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+                <div class="one"></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
