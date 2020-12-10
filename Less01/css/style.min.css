@@ -1,0 +1,1 @@
+.banner,div p,div.bgs{color:#00f}div p{width:500px;height:100px;background:#000}div a{list-style:none}div{width:200px}.banner{width:500px}#banner{background:#deb887}div.bg{background:url(img/productbg.jpg);font-size:20px}div.bgs{background-color:green}.bg::before{content:'这是befor内容'}

@@ -1,0 +1,75 @@
+{
+	"folders": [
+		{
+			"name": "文件项目",
+			"path": "..\\..\\GZ2068\\文件项目"
+		},
+		{
+			"name": "作业-LOL首页轮播图",
+			"path": "..\\js对象徐大大\\01-Javascript面向对象源代码与作业\\作业-LOL首页轮播图"
+		},
+		{
+			"name": "10月js",
+			"path": "..\\10月js"
+		},
+		{
+			"name": "贪吃蛇",
+			"path": "..\\贪吃蛇"
+		},
+		{
+			"name": "练习-拉萨手风琴",
+			"path": "..\\js对象徐大大\\练习-拉萨手风琴"
+		},
+		{
+			"name": "练习-高亮显示",
+			"path": "..\\js对象徐大大\\练习-高亮显示"
+		},
+		{
+			"name": "练习",
+			"path": "..\\练习"
+		},
+		{
+			"name": "考核项目-仿小米官网",
+			"path": "..\\考核项目-仿小米官网"
+		},
+		{
+			"name": "Bootstrap",
+			"path": "..\\Bootstrap"
+		},
+		{
+			"name": "ajax",
+			"path": "..\\ajax"
+		},
+		{
+			"name": "server",
+			"path": "D:\\node\\server"
+		},
+		{
+			"name": "css3",
+			"path": "..\\css3"
+		},
+		{
+			"path": "Git\\git01_20201207\\shop_js"
+		},
+		{
+			"path": "Git\\git02\\gz2068"
+		},
+		{
+			"path": "Git\\git02\\webpack_proj"
+		},
+		{
+			"path": "Git\\webpack02\\webpack_stu2"
+		},
+		{
+			"path": "Git\\Less01"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "css3",
+		"less.compile": {
+			"compress": false,
+			"outExt": ".css",
+			"out": "${workspaceRoot}\\css\\"
+		}
+	}
+}

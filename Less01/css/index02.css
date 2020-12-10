@@ -1,0 +1,68 @@
+h1,
+h2,
+h3,
+h1::before,
+h2::before,
+h3::before {
+  content: "这是伪元素";
+  color: #aa0000;
+  width: 800px;
+  background-color: orange;
+}
+ul {
+  width: 200px;
+  background-color: palegoldenrod;
+}
+ul li {
+  list-style: none;
+}
+ul li:hover {
+  color: paleturquoise;
+  font-size: 20px;
+  background-color: orange;
+}
+.father {
+  width: 200px;
+  height: 100px;
+  background-color: paleturquoise;
+}
+.father .son {
+  width: 100px;
+  height: 60px;
+  background-color: palevioletred;
+}
+.grandfan .father .son {
+  width: 150px;
+  height: 100px;
+  background-color: rebeccapurple;
+}
+div div,
+div p,
+div a,
+div ul,
+p div,
+p p,
+p a,
+p ul,
+a div,
+a p,
+a a,
+a ul,
+ul div,
+ul p,
+ul a,
+ul ul {
+  color: red;
+}
+.box1 {
+  width: 500px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: tan;
+}
+.box2 {
+  width: 500px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: blue;
+}

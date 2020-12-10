@@ -1,0 +1,63 @@
+@color:#ff0000 - #550000;
+@w:1000-200px;
+@text:"这是伪元素";
+@var:text;
+h1,h2,h3,h1::before,h2::before,h3::before{
+    content: @@var;
+    color: @color;
+    width: @w;
+    background-color: orange;
+}
+
+ul{
+    width: 200px;
+    // height: 100px;
+    background-color: palegoldenrod;
+    li{
+        list-style: none;
+        &:hover{
+            color: paleturquoise;
+            font-size: 20px;
+            background-color: orange;
+        }
+    }
+}
+
+.father{
+    width: 200px;
+    height: 100px;
+    background-color: paleturquoise;
+    .son{
+        width: 100px;
+        height: 60px;
+        background-color: palevioletred;
+        .grandfan &{
+            width: 150px;
+            height: 100px;
+            background-color: rebeccapurple;
+        }
+    }
+}
+
+div,p,a,ul{
+    & &{
+        color: red;
+    }
+}
+
+.mixi(){
+    width: 500px;
+    height: 100px;
+    margin: 0 auto;
+}
+.bg(@color){
+    background-color: @color;
+}
+.box1{
+    .mixi();
+    .bg(tan);
+}
+.box2{
+    .mixi();
+    .bg(blue);
+}

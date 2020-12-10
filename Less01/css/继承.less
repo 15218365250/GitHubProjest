@@ -1,0 +1,16 @@
+.box{
+    width: 800px;
+    height: 100px;
+    margin: 0 auto;
+    p{
+        font-size: 30px;
+        color: royalblue;
+    }
+}
+
+.floor:extend(.box){
+    background-color: saddlebrown;
+}
+.floor:extend(.box):extend(.box p){
+    background-color: sandybrown;
+}

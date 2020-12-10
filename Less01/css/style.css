@@ -1,0 +1,30 @@
+div p {
+  color: blue;
+  width: 500px;
+  height: 100px;
+  background: #000;
+}
+div a {
+  list-style: none;
+}
+div {
+  width: 200px;
+}
+.banner {
+  width: 500px;
+  color: blue;
+}
+#banner {
+  background: burlywood;
+}
+div.bg {
+  background: url("img/productbg.jpg");
+  font-size: 20px;
+}
+div.bgs {
+  color: blue;
+  background-color: green;
+}
+.bg::before {
+  content: '这是befor内容';
+}

@@ -1,0 +1,34 @@
+
+.triangle(@width,@config,@color){
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: top;
+    border: @width solid transparent;
+    border-@{config}-color:@color ;
+}
+
+.triangle01{
+    .triangle(50px,right,red);
+}
+.triangle02{
+    .triangle(20px,right,blue);
+}
+.triangle03{
+    .triangle(50px,top,red);
+}
+.triangle04{
+    .triangle(20px,top,black);
+}
+.triangle05{
+    .triangle(50px,left,red);
+}
+.triangle06{
+    .triangle(30px,left,blue);
+}
+.triangle07{
+    .triangle(50px,bottom,red);
+}
+.triangle08{
+    .triangle(20px,bottom,blue);
+}
